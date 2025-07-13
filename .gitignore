@@ -1,4 +1,5 @@
 config.yaml
+*.yaml
 # Binaries for programs and plugins
 
 ai
