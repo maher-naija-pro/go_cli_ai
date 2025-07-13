@@ -1,9 +1,9 @@
 openai:
-  api_key: "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"
+  api_key: "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"
   endpoint: "https://api.openai.com/v1/chat/completions"
   model: "gpt-4"
   prompts:
     assistant: "You are a helpful assistant."
-    dev: "You are a senior software engineer helping write efficient and secure code."
+    dev: " Respond briefly and concisely short cmd  as table"
     tutor: "You are a patient tutor explaining technical topics to beginners."
 
