@@ -1,0 +1,9 @@
+openai:
+  api_key: "sk-xxxx"
+  endpoint: "https://api.openai.com/v1/chat/completions"
+  model: "gpt-4"
+  prompts:
+    assistant: "You are a helpful assistant."
+    dev: "You are a senior software engineer helping write efficient and secure code."
+    tutor: "You are a patient tutor explaining technical topics to beginners."
+
