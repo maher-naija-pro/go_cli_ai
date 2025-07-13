@@ -4,12 +4,11 @@ import (
 	"fmt"
 	"ai/config"
 	"ai/openai"
-
 	"github.com/urfave/cli/v2"
 )
 
-func OpenAICommand() *cli.Command {
-	cfg, err := config.LoadConfig("config.yaml")
+func OpenAICommand(configPath string, context string) *cli.Command {
+	cfg, err := config.LoadConfig(configPath)
 	if err != nil {
 		panic("failed to load config.yaml: " + err.Error())
 	}
@@ -17,7 +16,7 @@ func OpenAICommand() *cli.Command {
 	var subCommands []*cli.Command
 	for role, prompt := range cfg.OpenAI.Prompts {
 		r := role
-		p := prompt
+		p := prompt + " " + context
 
 		subCommands = append(subCommands, &cli.Command{
 			Name:  r,
