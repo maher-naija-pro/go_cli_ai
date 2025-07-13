@@ -31,6 +31,21 @@ func LoadConfig(path string) (*Config, error) {
 		log.Printf("Error unmarshalling config file: %v", err)
 		return nil, fmt.Errorf("failed to unmarshal config: %w", err)
 	}
+
+	// Check that all fields are set
+	if cfg.OpenAI.APIKey == "" {
+		return nil, fmt.Errorf("API key is missing in the config")
+	}
+	if cfg.OpenAI.Endpoint == "" {
+		return nil, fmt.Errorf("Endpoint is missing in the config")
+	}
+	if cfg.OpenAI.Model == "" {
+		return nil, fmt.Errorf("Model is missing in the config")
+	}
+	if cfg.OpenAI.Prompts == nil || len(cfg.OpenAI.Prompts) == 0 {
+		return nil, fmt.Errorf("Prompts are missing in the config")
+	}
+
 	log.Printf("Config loaded successfully from %s", path)
 	return &cfg, nil
 }
