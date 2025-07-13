@@ -39,6 +39,7 @@ Thumbs.db
 # Environment/config files
 .env
 .env.*
+ config.yaml
 
 # Coverage/test output
 *.coverprofile

@@ -14,6 +14,7 @@ func main() {
 		Usage: "An advanced AI CLI",
 		Commands: []*cli.Command{
 			cmd.HelloCommand,
+            cmd.OpenAICommand(),
 		},
 	}
 
