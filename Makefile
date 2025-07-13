@@ -1,12 +1,24 @@
-build:
-	go build -o bin/myapp ./cmd/myapp
-
 run:
-	go run ./cmd/myapp
+	go run main.go
+
+build:
+	go build -o cli main.go
 
 test:
 	go test ./...
 
-fmt:
-	go fmt ./...
+lint:
+	golangci-lint run
+
+hello:
+	go run main.go hello
+
+assistant:
+	go run main.go ask assistant "What can you do?"
+
+dev:
+	go run main.go ask dev "Write a Go program that reads a file"
+
+tutor:
+	go run main.go ask tutor "Explain Docker to a beginner"
 

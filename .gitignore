@@ -1,5 +1,9 @@
+
 # Binaries for programs and plugins
+
+ai
 *.exe
+
 *.exe~
 *.dll
 *.so

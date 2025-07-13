@@ -1,10 +1,11 @@
+
 package main
 
 import (
 	"log"
 	"os"
 	"github.com/urfave/cli/v2"
-	"ai/cli/cmd"
+	"ai/cmd"
 )
 
 func main() {
