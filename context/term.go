@@ -1,31 +1,26 @@
-package internal
+package context
 
 import (
-	"bytes"
-	"io"
-	"os"
-	"os/exec"
+    "log"
+    "os"
+    "fmt"
 )
 
-// ReadTerminalContent returns the current terminal (tty) content as a string.
-func ReadTerminalContent() (string, error) {
-	// Try to read the tty device directly
-	tty, err := os.Open("/dev/tty")
-	if err != nil {
-		return "", err
-	}
-	defer tty.Close()
+// Constant marker to start context from
+const contextStartMarker = "===START==="
+func ReadTerminalContext(filename string) (string, error) {
+    const marker = "---CONTEXT START---"
 
-	// Use "script" to capture the screen content
-	cmd := exec.Command("script", "-q", "/dev/null", "-c", "cat /dev/tty")
-	cmd.Stdin = tty
-	var out bytes.Buffer
-	cmd.Stdout = &out
-	cmd.Stderr = io.Discard
+    //log.Printf("Reading file: %s", filename)
+    content, err := os.ReadFile(filename)
+    if err != nil {
+        log.Printf("Failed to read file: %s, error: %v", filename, err)
+        return "", fmt.Errorf("failed to read file: %w", err)
+    }
 
-	if err := cmd.Run(); err != nil {
-		return "", err
-	}
-	return out.String(), nil
-}
+    //log.Printf("File content: %s", string(content))
+    text := string(content)
+    log.Println("READ CONTEXT OK")
 
+    return text, nil
+} 
