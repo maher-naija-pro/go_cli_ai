@@ -21,7 +21,8 @@ app := &cli.App{
 		Usage: "An advanced AI CLI",
 		Commands: []*cli.Command{
 			cmd.HelloCommand,
-			cmd.OpenAICommand("config.yaml" , context_term),
+			cmd.OpenAICommand("config.yaml", context_term),
+			cmd.CaptureCommand,
 		},
 	}
 
