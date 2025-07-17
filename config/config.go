@@ -46,21 +46,18 @@ func LoadConfig(path string) *Config {
 
 	// Fill in missing fields with defaults
 	if cfg.OpenAI.Endpoint == "" {
-		cfg.OpenAI.Endpoint = "https://api.openai.com/v1/chat/completions"
+		cfg.OpenAI.Endpoint = DefaultConfig().OpenAI.Endpoint
 	}
 	if cfg.OpenAI.Model == "" {
 		cfg.OpenAI.Model = "gpt-3.5-turbo"
 	}
 	if cfg.OpenAI.Prompts == nil || len(cfg.OpenAI.Prompts) == 0 {
-		cfg.OpenAI.Prompts = map[string]string{
-			"default": "You are a helpful assistant.",
-		}
+		cfg.OpenAI.Prompts = DefaultConfig().OpenAI.Prompts
 	}
 
-	// APIKey is required, so still check for it
+	// APIKey is required, so get default from struct if missing
 	if cfg.OpenAI.APIKey == "" {
-		log.Printf("Missing OpenAI API key in config")
-		return nil
+		cfg.OpenAI.APIKey = DefaultConfig().OpenAI.APIKey
 	}
 
 	return &cfg
