@@ -41,7 +41,7 @@ func LoadConfig(path string) *Config {
 	err = yaml.Unmarshal(raw, &cfg)
 	if err != nil {
 		log.Printf("Error unmarshalling config file: %v", err)
-		return nil
+		return DefaultConfig()
 	}
 
 	// Fill in missing fields with defaults
@@ -49,9 +49,9 @@ func LoadConfig(path string) *Config {
 		cfg.OpenAI.Endpoint = DefaultConfig().OpenAI.Endpoint
 	}
 	if cfg.OpenAI.Model == "" {
-		cfg.OpenAI.Model = "gpt-3.5-turbo"
+		cfg.OpenAI.Model = DefaultConfig().OpenAI.Model
 	}
-	if cfg.OpenAI.Prompts == nil || len(cfg.OpenAI.Prompts) == 0 {
+	if len(cfg.OpenAI.Prompts) == 0 {
 		cfg.OpenAI.Prompts = DefaultConfig().OpenAI.Prompts
 	}
 
