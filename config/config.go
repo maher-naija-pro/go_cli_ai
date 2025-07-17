@@ -24,11 +24,16 @@ func DefaultConfig() *Config {
 			APIKey:   "",
 			Endpoint: "https://api.openai.com/v1/chat/completions",
 			Model:    "gpt-4",
-			Prompts: map[string]string{
-				"assistant": "You are a helpful assistant.",
-				"dev":       "You are a senior software engineer helping write efficient and secure code.",
-				"tutor":     "You are a patient tutor explaining technical topics to beginners.",
-			},
+				Prompts: map[string]string{
+					
+					"explain":   "You are a patient tutor who explains technical topics in simple, beginner-friendly language.",
+					"dev":       "You are a senior software engineer helping write efficient, secure, and idiomatic code. Offer best practices and clear explanations.",
+					"logs":      "You are an expert at interpreting and explaining logs, making them easy for humans to understand and troubleshoot.",
+					"debug":     "You are an expert at debugging code, identifying root causes, and suggesting effective fixes.",
+					"tests":     "You are an expert at writing comprehensive and maintainable tests for code, including unit and integration tests.",
+					"review":    "You are a code reviewer who provides constructive feedback and suggestions for improvement.",
+
+				},
 		},
 	}
 }
