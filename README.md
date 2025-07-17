@@ -42,6 +42,14 @@ openai:
 - **model**: Model to use (e.g., gpt-4)
 - **prompts**: System prompts for different roles
 
+## Environment Variables
+
+| Variable      | Description                                 | Default        |
+|---------------|---------------------------------------------|----------------|
+| `CONFIG_PATH` | Path to the configuration YAML file         | `config.yaml`  |
+
+You can set the `CONFIG_PATH` environment variable to specify a custom configuration file location. If not set, the CLI will look for `config.yaml` in the current directory.
+
 ## Usage
 
 Run the CLI:

@@ -25,7 +25,7 @@ func DefaultConfig() *Config {
 			Endpoint: "https://api.openai.com/v1/chat/completions",
 			Model:    "gpt-3.5-turbo",
 			Prompts: map[string]string{
-				"default": "You are a helpful assistant.",
+				"dev": "You are a helpful assistant.",
 			},
 		},
 	}
