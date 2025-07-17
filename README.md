@@ -20,8 +20,6 @@ go_cli_ai is an advanced AI-powered command-line interface (CLI) tool written in
    ```
 2. **Build the CLI:**
    ```sh
-   make build
-   # or
    go build -o ai main.go
    ```
 
@@ -48,17 +46,12 @@ openai:
 
 Run the CLI:
 ```sh
-./cli
-```
-Or use Makefile shortcuts:
-```sh
-make run
+./ai
 ```
 
 ### Main Commands
 
-- `hello` — Prints "Hello world!"
-- `ask` — Interact with OpenAI using configured system roles
+- `ask` — Interact with OpenAI endpoint using configured system roles
 
 #### Example:
 ```sh
@@ -66,17 +59,6 @@ make run
 ./ai ask dev "Write a Go program that reads a file."
 ./ai ask tutor "Explain Docker to a beginner."
 ```
-
-## Development
-
-- Run tests:
-  ```sh
-  make test
-  ```
-- Lint code:
-  ```sh
-  make lint
-  ```
 
 ##  Integration
 
