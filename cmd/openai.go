@@ -1,9 +1,10 @@
 package cmd
 
 import (
-	"fmt"
 	"ai/config"
 	"ai/openai"
+	"fmt"
+
 	"github.com/urfave/cli/v2"
 )
 
@@ -11,14 +12,13 @@ func OpenAICommand(configPath string, context string) *cli.Command {
 	cfg := config.LoadConfig(configPath)
 	if cfg == nil {
 		return &cli.Command{
-		Name:        "ask",
-		Usage:       "Send a prompt using configured system roles",
-		Action: func(c *cli.Context) error {
-			return cli.Exit("Config file not found", 1)
-		},
-	}	
+			Name:  "ask",
+			Usage: "Send a prompt using configured system roles",
+			Action: func(c *cli.Context) error {
+				return cli.Exit("Config file not found", 1)
+			},
+		}
 	}
-
 
 	var subCommands []*cli.Command
 	for role, prompt := range cfg.OpenAI.Prompts {
@@ -49,4 +49,3 @@ func OpenAICommand(configPath string, context string) *cli.Command {
 		Subcommands: subCommands,
 	}
 }
-

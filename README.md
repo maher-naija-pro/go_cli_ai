@@ -59,7 +59,8 @@ Run the CLI:
 
 ### Main Commands
 
-- `ask` — Interact with OpenAI endpoint using configured system roles
+- `ask` — Interact with OpenAI endpoint using configured system roles (subcommands: assistant, dev, tutor, etc.)
+- `init-config` — Generate a default `config.yaml` file in the current directory
 
 #### Example:
 ```sh
