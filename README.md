@@ -25,7 +25,10 @@ go_cli_ai is an advanced AI-powered command-line interface (CLI) tool written in
 
 ## Configuration
 
-Create a `config.yaml` file in the project root (or use the provided `config.yaml_exemple` as a template):
+To set up your configuration, run the following command to generate a default `config.yaml` in your current directory:
+
+./ai init-config
+
 
 ```yaml
 openai:
@@ -41,6 +44,9 @@ openai:
 - **endpoint**: Any OpenAI-compatible API endpoint (such as OpenAI or open-source alternatives)
 - **model**: Model to use (e.g., gpt-4)
 - **prompts**: System prompts for different roles
+
+
+**Important:** Be sure to replace `"sk-..."` with your actual OpenAI API key in the `api_key` field before using the CLI. Without a valid API key, requests to the OpenAI endpoint will not work.
 
 ## Environment Variables
 

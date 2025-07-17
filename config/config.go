@@ -23,9 +23,11 @@ func DefaultConfig() *Config {
 		OpenAI: OpenAIConfig{
 			APIKey:   "",
 			Endpoint: "https://api.openai.com/v1/chat/completions",
-			Model:    "gpt-3.5-turbo",
+			Model:    "gpt-4",
 			Prompts: map[string]string{
-				"dev": "You are a helpful assistant.",
+				"assistant": "You are a helpful assistant.",
+				"dev":       "You are a senior software engineer helping write efficient and secure code.",
+				"tutor":     "You are a patient tutor explaining technical topics to beginners.",
 			},
 		},
 	}
