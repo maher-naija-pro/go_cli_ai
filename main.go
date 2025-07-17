@@ -6,7 +6,7 @@ import (
 	"os"
 	"github.com/urfave/cli/v2"
 	"ai/cmd"
-	"ai/context"
+
 )
 
 func main() {
@@ -15,7 +15,7 @@ app := &cli.App{
 		Name:  "cli",
 		Usage: "An advanced AI CLI",
 		Commands: []*cli.Command{
-			cmd.OpenAICommand("config.yaml", context_term),
+			cmd.OpenAICommand("config.yaml", ""),
 		},
 	}
 

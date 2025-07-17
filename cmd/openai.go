@@ -8,10 +8,17 @@ import (
 )
 
 func OpenAICommand(configPath string, context string) *cli.Command {
-	cfg, err := config.LoadConfig(configPath)
-	if err != nil {
-		panic("failed to load config.yaml: " + err.Error())
+	cfg := config.LoadConfig(configPath)
+	if cfg == nil {
+		return &cli.Command{
+		Name:        "ask",
+		Usage:       "Send a prompt using configured system roles",
+		Action: func(c *cli.Context) error {
+			return cli.Exit("Config file not found", 1)
+		},
+	}	
 	}
+
 
 	var subCommands []*cli.Command
 	for role, prompt := range cfg.OpenAI.Prompts {
