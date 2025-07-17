@@ -1,6 +1,5 @@
 openai:
-  api_key: "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"
-
+  api_key: "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"
   endpoint: "https://api.openai.com/v1/chat/completions"
   model: "gpt-4"
   prompts:
